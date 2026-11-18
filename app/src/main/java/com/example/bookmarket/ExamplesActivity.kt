@@ -22,6 +22,17 @@ import com.example.bookmarket.chap04.ConstraintLayoutProjectActivity
 import com.example.bookmarket.chap04.FrameLayoutProjectActivity
 import com.example.bookmarket.chap04.LinearLayoutProjectActivity
 import com.example.bookmarket.chap04.TableLayoutProjectActivity
+import com.example.bookmarket.chap05.ButtonEvent01Activity
+import com.example.bookmarket.chap05.ButtonEvent03Activity
+import com.example.bookmarket.chap05.ButtonEvent04Activity
+import com.example.bookmarket.chap05.ButtonEventProjectActivity
+import com.example.bookmarket.chap05.CheckBoxActivity
+import com.example.bookmarket.chap05.CheckBoxProjectActivity
+import com.example.bookmarket.chap05.RadioButtonActivity
+import com.example.bookmarket.chap05.RadioButtonProjectActivity
+import com.example.bookmarket.chap05.SwitchProjectActivity
+import com.example.bookmarket.chap05.ToggleButtonActivity
+import com.example.bookmarket.chap05.ToggleButtonProjectActivity
 
 fun AppCompatActivity.setScreen(layoutId: Int, rootId: Int = R.id.main) {
     enableEdgeToEdge()
@@ -54,6 +65,9 @@ class ExamplesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val screens: List<Pair<String, Intent?>> = listOf(
+            "5장 프로젝트" to null,
+            "BookMarket 도서목록 화면" to screen(BooksActivity::class.java),
+
             "4장 프로젝트" to null,
             "BookMarket 메뉴 목록 화면" to screen(MenuActivity::class.java),
 
@@ -110,6 +124,24 @@ class ExamplesActivity : AppCompatActivity() {
             "TableLayout 04 - layout_column" to layout(R.layout.ch04_table04),
             "TableLayout 05 - layout_span" to layout(R.layout.ch04_table05),
             "TableLayoutProject - 그림 개수 세기" to screen(TableLayoutProjectActivity::class.java),
+
+            "5장 이벤트 처리" to null,
+            "ButtonEvent 01 - onClick 속성" to screen(ButtonEvent01Activity::class.java),
+            "ButtonEvent 03 - 액티비티가 리스너 구현" to screen(ButtonEvent03Activity::class.java),
+            "ButtonEvent 04 - 리스너 클래스" to screen(ButtonEvent04Activity::class.java),
+            "ButtonEventProject - 그림 퀴즈" to screen(ButtonEventProjectActivity::class.java),
+            "CheckBox 예제" to screen(CheckBoxActivity::class.java),
+            "CheckBoxProject - 소방관 용품 찾기" to screen(CheckBoxProjectActivity::class.java),
+            "RadioButton 예제" to screen(RadioButtonActivity::class.java),
+            "RadioButtonProject - 동물 그림자 찾기" to screen(RadioButtonProjectActivity::class.java),
+            "ToggleButton 예제" to screen(ToggleButtonActivity::class.java),
+            "ToggleButtonProject - 조명 켜고 끄기" to screen(ToggleButtonProjectActivity::class.java),
+            "Switch 예제" to layout(R.layout.ch05_switch),
+            "Switch 02 - switchMinWidth" to layout(R.layout.ch05_switch02),
+            "Switch 03 - textOn/textOff" to layout(R.layout.ch05_switch03),
+            "Switch 04 - thumb" to layout(R.layout.ch05_switch04),
+            "Switch 05 - thumbTint" to layout(R.layout.ch05_switch05),
+            "SwitchProject - 고양이와 조명" to screen(SwitchProjectActivity::class.java),
         )
         val list = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         for ((title, intent) in screens) {

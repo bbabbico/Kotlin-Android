@@ -34,6 +34,7 @@
         </activity>
         <activity android:name=".LayoutActivity" />
         <activity android:name=".MenuActivity" />
+        <activity android:name=".BooksActivity" />
         <activity android:name=".chap03.TextViewActivity" />
         <activity android:name=".chap03.ButtonActivity" />
         <activity android:name=".chap03.ButtonProjectActivity" />
@@ -46,6 +47,17 @@
         <activity android:name=".chap04.LinearLayoutProjectActivity" />
         <activity android:name=".chap04.FrameLayoutProjectActivity" />
         <activity android:name=".chap04.TableLayoutProjectActivity" />
+        <activity android:name=".chap05.ButtonEvent01Activity" />
+        <activity android:name=".chap05.ButtonEvent03Activity" />
+        <activity android:name=".chap05.ButtonEvent04Activity" />
+        <activity android:name=".chap05.ButtonEventProjectActivity" />
+        <activity android:name=".chap05.CheckBoxActivity" />
+        <activity android:name=".chap05.CheckBoxProjectActivity" />
+        <activity android:name=".chap05.RadioButtonActivity" />
+        <activity android:name=".chap05.RadioButtonProjectActivity" />
+        <activity android:name=".chap05.ToggleButtonActivity" />
+        <activity android:name=".chap05.ToggleButtonProjectActivity" />
+        <activity android:name=".chap05.SwitchProjectActivity" />
     </application>
 
 </manifest>
