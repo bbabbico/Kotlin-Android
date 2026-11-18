@@ -22,6 +22,30 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity
+            android:name=".ExamplesActivity"
+            android:exported="true"
+            android:label="@string/examples_name">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name=".LayoutActivity" />
+        <activity android:name=".MenuActivity" />
+        <activity android:name=".chap03.TextViewActivity" />
+        <activity android:name=".chap03.ButtonActivity" />
+        <activity android:name=".chap03.ButtonProjectActivity" />
+        <activity android:name=".chap03.EditTextActivity" />
+        <activity android:name=".chap03.EditTextProjectActivity" />
+        <activity android:name=".chap03.ImageViewActivity" />
+        <activity android:name=".chap03.ImageButtonActivity" />
+        <activity android:name=".chap03.UIActivity" />
+        <activity android:name=".chap04.ConstraintLayoutProjectActivity" />
+        <activity android:name=".chap04.LinearLayoutProjectActivity" />
+        <activity android:name=".chap04.FrameLayoutProjectActivity" />
+        <activity android:name=".chap04.TableLayoutProjectActivity" />
     </application>
 
 </manifest>
