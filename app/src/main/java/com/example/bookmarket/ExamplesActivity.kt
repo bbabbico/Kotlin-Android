@@ -33,6 +33,16 @@ import com.example.bookmarket.chap05.RadioButtonProjectActivity
 import com.example.bookmarket.chap05.SwitchProjectActivity
 import com.example.bookmarket.chap05.ToggleButtonActivity
 import com.example.bookmarket.chap05.ToggleButtonProjectActivity
+import com.example.bookmarket.chap06.ExplicitIntent01Activity
+import com.example.bookmarket.chap06.ExplicitIntent02Activity
+import com.example.bookmarket.chap06.ExplicitIntent03Activity
+import com.example.bookmarket.chap06.ImplicitIntentActivity
+import com.example.bookmarket.chap06.IntentFilterExampleActivity
+import com.example.bookmarket.chap06.SplashLoginActivity
+import com.example.bookmarket.chap06.AnimalMainActivity
+import com.example.bookmarket.chap06.ShapeMainActivity
+import com.example.bookmarket.chap06.ImplicitIntentProjectActivity
+import com.example.bookmarket.chap06.IntentFilterProjectActivity
 
 fun AppCompatActivity.setScreen(layoutId: Int, rootId: Int = R.id.main) {
     enableEdgeToEdge()
@@ -65,6 +75,9 @@ class ExamplesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val screens: List<Pair<String, Intent?>> = listOf(
+            "6장 프로젝트" to null,
+            "BookMarket 시작 → 메뉴 → 도서목록 → 도서 상세" to screen(MainActivity::class.java),
+
             "5장 프로젝트" to null,
             "BookMarket 도서목록 화면" to screen(BooksActivity::class.java),
 
@@ -142,6 +155,18 @@ class ExamplesActivity : AppCompatActivity() {
             "Switch 04 - thumb" to layout(R.layout.ch05_switch04),
             "Switch 05 - thumbTint" to layout(R.layout.ch05_switch05),
             "SwitchProject - 고양이와 조명" to screen(SwitchProjectActivity::class.java),
+
+            "6장 인텐트" to null,
+            "ExplicitIntent 01 - 액티비티 이동" to screen(ExplicitIntent01Activity::class.java),
+            "ExplicitIntent 02 - 데이터 전달" to screen(ExplicitIntent02Activity::class.java),
+            "ExplicitIntent 03 - 결과 돌려받기" to screen(ExplicitIntent03Activity::class.java),
+            "ExplicitIntentProject01 - 스플래시 후 로그인" to screen(SplashLoginActivity::class.java),
+            "ExplicitIntentProject02 - 다른 그림 찾기" to screen(AnimalMainActivity::class.java),
+            "ExplicitIntentProject03 - 도형 고르기" to screen(ShapeMainActivity::class.java),
+            "ImplicitIntent 예제 - 전화 걸기" to screen(ImplicitIntentActivity::class.java),
+            "ImplicitIntentProject - 웹페이지 보기" to screen(ImplicitIntentProjectActivity::class.java),
+            "IntentFilter 예제 - 웹 불러오기" to screen(IntentFilterExampleActivity::class.java),
+            "IntentFilterProject - 이메일 보내기" to screen(IntentFilterProjectActivity::class.java),
         )
         val list = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         for ((title, intent) in screens) {

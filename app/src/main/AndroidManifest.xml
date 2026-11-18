@@ -35,6 +35,7 @@
         <activity android:name=".LayoutActivity" />
         <activity android:name=".MenuActivity" />
         <activity android:name=".BooksActivity" />
+        <activity android:name=".BookActivity" />
         <activity android:name=".chap03.TextViewActivity" />
         <activity android:name=".chap03.ButtonActivity" />
         <activity android:name=".chap03.ButtonProjectActivity" />
@@ -58,6 +59,30 @@
         <activity android:name=".chap05.ToggleButtonActivity" />
         <activity android:name=".chap05.ToggleButtonProjectActivity" />
         <activity android:name=".chap05.SwitchProjectActivity" />
+        <activity android:name=".chap06.ExplicitIntent01Activity" />
+        <activity android:name=".chap06.ExplicitIntent01SubActivity" />
+        <activity android:name=".chap06.ExplicitIntent02Activity" />
+        <activity android:name=".chap06.ExplicitIntent02SubActivity" />
+        <activity android:name=".chap06.ExplicitIntent03Activity" />
+        <activity android:name=".chap06.ExplicitIntent03SubActivity" />
+        <activity android:name=".chap06.ImplicitIntentActivity" />
+        <activity android:name=".chap06.IntentFilterExampleActivity" />
+        <activity android:name=".chap06.SplashLoginActivity" />
+        <activity android:name=".chap06.LoginActivity" />
+        <activity android:name=".chap06.AnimalMainActivity" />
+        <activity android:name=".chap06.AnimalGameActivity" />
+        <activity android:name=".chap06.ShapeMainActivity" />
+        <activity android:name=".chap06.ShapeGameActivity" />
+        <activity android:name=".chap06.ImplicitIntentProjectActivity" />
+        <activity
+            android:name=".chap06.IntentFilterProjectActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.SEND" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <data android:mimeType="message/rfc822" />
+            </intent-filter>
+        </activity>
     </application>
 
 </manifest>
