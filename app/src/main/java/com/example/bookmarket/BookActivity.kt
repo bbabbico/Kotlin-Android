@@ -1,8 +1,16 @@
 package com.example.bookmarket
 
+import android.content.DialogInterface
+import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 
 class BookActivity : AppCompatActivity() {
@@ -14,10 +22,12 @@ class BookActivity : AppCompatActivity() {
     lateinit var writerObj: TextView
     lateinit var descriptionObj: TextView
     lateinit var categoryObj: TextView
+    lateinit var cartplusObj: Button
+    lateinit var cartCount: TextView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setScreen(R.layout.activity_book, R.id.book)
+        setScreen(R.layout.activity_book, R.id.book, edgeToEdge = false)
 
         imgObj = findViewById(R.id.imageView1)
         bookidObj = findViewById(R.id.book_tv01)
@@ -43,5 +53,71 @@ class BookActivity : AppCompatActivity() {
             "BOOK1236" -> imgObj.setImageResource(R.drawable.books_book3)
             "BOOK1237" -> imgObj.setImageResource(R.drawable.books_book4)
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+
+        cartplusObj = findViewById(R.id.book_bt01)
+        cartplusObj.setOnClickListener {
+            val alertDialog = AlertDialog.Builder(this)
+            alertDialog.setIcon(R.drawable.icon_dialog)
+            alertDialog.setTitle("장바구니 담기")
+            alertDialog.setMessage("도서를 장바구니에 추가하겠습니까?")
+
+            val listener = DialogInterface.OnClickListener { dialogInterface, i ->
+                when (i) {
+                    DialogInterface.BUTTON_POSITIVE -> {
+                        val count = cartCount.text.toString().toInt() + 1
+                        cartCount.text = count.toString()
+                        dialogInterface.dismiss()
+                    }
+                    DialogInterface.BUTTON_NEGATIVE -> {
+                        dialogInterface.cancel()
+                    }
+                }
+            }
+            alertDialog.setPositiveButton("예", listener)
+            alertDialog.setNegativeButton("아니요", listener)
+            alertDialog.show()
+        }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_book, menu)
+
+        val item = menu?.findItem(R.id.menu_cart)
+        item?.setActionView(R.layout.cart_count_layout)
+        val oklayout = item?.actionView
+        if (oklayout != null) {
+            cartCount = oklayout.findViewById(R.id.cart_count)
+        }
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+            }
+            R.id.menu_home -> {
+                Toast.makeText(applicationContext, "홈으로 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                finish()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.menu_list -> {
+                Toast.makeText(applicationContext, "도서목록 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                finish()
+                val intent = Intent(this, BooksActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.menu_cart -> {
+                Toast.makeText(applicationContext, "장바구니 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 }

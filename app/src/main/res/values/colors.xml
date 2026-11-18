@@ -2,4 +2,8 @@
 <resources>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="appBarColor">#48B6B5</color>
+    <color name="ActionBar">#F7A69A</color>
+    <color name="statusBar">#F8BEB6</color>
+    <color name="menuColor">#6750A4</color>
 </resources>

@@ -6,4 +6,34 @@
     </style>
 
     <style name="Theme.BookMarket" parent="Base.Theme.BookMarket" />
+
+    <style name="MyTheme.BookMarket" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/appBarColor</item>
+        <item name="android:statusBarColor">@color/appBarColor</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.Ch07.ActionBar" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/ActionBar</item>
+        <item name="android:statusBarColor">@color/statusBar</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="Theme.Ch07.OptionMenu" parent="Theme.MaterialComponents.DayNight.DarkActionBar">
+        <item name="colorPrimary">@color/menuColor</item>
+        <item name="android:statusBarColor">@color/menuColor</item>
+        <item name="android:windowLightStatusBar">true</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+    </style>
+
+    <style name="TimePickerStyle" parent="Theme.AppCompat.Light.Dialog">
+        <item name="colorAccent">#FF8A65</item>
+        <item name="android:windowBackground">#FAC980</item>
+        <item name="android:textColorSecondary">#E91E63</item>
+        <item name="android:textColorPrimary">#888A8A</item>
+        <item name="android:textColorPrimaryInverse">#FFF176</item>
+        <item name="android:textColorSecondaryInverse">#ffffff</item>
+        <item name="colorControlActivated">#2196F3</item>
+    </style>
 </resources>

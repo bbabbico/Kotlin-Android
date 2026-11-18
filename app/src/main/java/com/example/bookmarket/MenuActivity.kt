@@ -2,17 +2,38 @@ package com.example.bookmarket
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Gravity
+import android.view.MenuItem
 import android.view.View
+import android.widget.Button
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
+import androidx.drawerlayout.widget.DrawerLayout
+import com.google.android.material.navigation.NavigationView
 
-class MenuActivity : AppCompatActivity() {
+class MenuActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
     var index = 0
+    lateinit var toolbar: Toolbar
+    lateinit var dLayout: DrawerLayout
+    lateinit var navigation: NavigationView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setScreen(R.layout.activity_menu, R.id.menu)
+        setScreen(R.layout.activity_menu, R.id.menu, edgeToEdge = false)
+
+        toolbar = findViewById(R.id.toolbar)
+        setSupportActionBar(toolbar)
+        navigation = findViewById(R.id.navigation)
+        dLayout = findViewById(R.id.menu)
+
+        toolbar.setNavigationOnClickListener {
+            dLayout.openDrawer(Gravity.LEFT)
+        }
+        navigation.setNavigationItemSelectedListener(this)
     }
 
     fun onBookListClick(view: View?) {
@@ -46,5 +67,28 @@ class MenuActivity : AppCompatActivity() {
         if (index % 2 == 0) menuObj.setImageResource(R.drawable.menu_banner2)
         else menuObj.setImageResource(R.drawable.menu_banner1)
         index++
+    }
+
+    override fun onNavigationItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            R.id.menu01 -> {
+                val builder = AlertDialog.Builder(this)
+                val dialogView = layoutInflater.inflate(R.layout.dialog_login, null)
+                builder.setView(dialogView)
+                val dialog = builder.show()
+
+                val loginBtn: Button = dialogView.findViewById(R.id.loginBtn)
+                loginBtn.setOnClickListener {
+                    val tvID: TextView = dialogView.findViewById(R.id.userID)
+                    val tvPW: TextView = dialogView.findViewById(R.id.userPW)
+                    dialog.dismiss()
+                    Toast.makeText(this, "아이디: " + tvID.text + " 비밀번호: " + tvPW.text, Toast.LENGTH_LONG).show()
+                }
+            }
+            R.id.menu02 -> Toast.makeText(this, " 메뉴2 : " + item.title, Toast.LENGTH_SHORT).show()
+            R.id.menu03 -> Toast.makeText(this, " 메뉴3 : " + item.title, Toast.LENGTH_SHORT).show()
+        }
+        dLayout.closeDrawers()
+        return true
     }
 }

@@ -2,7 +2,11 @@ package com.example.bookmarket
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.Menu
+import android.view.MenuInflater
+import android.view.MenuItem
 import android.widget.ImageView
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 
@@ -14,7 +18,7 @@ class BooksActivity : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setScreen(R.layout.activity_books, R.id.books)
+        setScreen(R.layout.activity_books, R.id.books, edgeToEdge = false)
 
         book1Obj = findViewById(R.id.book1)
         book2Obj = findViewById(R.id.book2)
@@ -37,6 +41,56 @@ class BooksActivity : AppCompatActivity() {
             Toast.makeText(applicationContext, "미라클 HTML5 + CSS3 + 자바스크립트", Toast.LENGTH_LONG).show()
             BookItem4()
         }
+
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.menu_books, menu)
+
+        val searchItem: MenuItem? = menu?.findItem(R.id.menu_search)
+        val searchView = searchItem?.actionView as SearchView
+        searchView.queryHint = "도서명을 입력해주세요."
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                Toast.makeText(applicationContext, query, Toast.LENGTH_LONG).show()
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String): Boolean {
+                return false
+            }
+        })
+        return super.onCreateOptionsMenu(menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        when (item.itemId) {
+            android.R.id.home -> {
+                onBackPressedDispatcher.onBackPressed()
+            }
+            R.id.menu_home -> {
+                Toast.makeText(applicationContext, "홈으로 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                finish()
+                val intent = Intent(this, MainActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            R.id.main_video -> {
+                Toast.makeText(applicationContext, "동영상강좌 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.menu_customer -> {
+                Toast.makeText(applicationContext, "고객센터 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                return true
+            }
+            R.id.menu_mypage -> {
+                Toast.makeText(applicationContext, "마이페이지 메뉴를 클릭하였습니다", Toast.LENGTH_LONG).show()
+                return true
+            }
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     fun BookItem1() {

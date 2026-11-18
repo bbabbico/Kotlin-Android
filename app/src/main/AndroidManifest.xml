@@ -34,8 +34,14 @@
         </activity>
         <activity android:name=".LayoutActivity" />
         <activity android:name=".MenuActivity" />
-        <activity android:name=".BooksActivity" />
-        <activity android:name=".BookActivity" />
+        <activity
+            android:name=".BooksActivity"
+            android:label="도서목록"
+            android:theme="@style/MyTheme.BookMarket" />
+        <activity
+            android:name=".BookActivity"
+            android:label="도서상세정보"
+            android:theme="@style/MyTheme.BookMarket" />
         <activity android:name=".chap03.TextViewActivity" />
         <activity android:name=".chap03.ButtonActivity" />
         <activity android:name=".chap03.ButtonProjectActivity" />
@@ -74,6 +80,24 @@
         <activity android:name=".chap06.ShapeMainActivity" />
         <activity android:name=".chap06.ShapeGameActivity" />
         <activity android:name=".chap06.ImplicitIntentProjectActivity" />
+        <activity
+            android:name=".chap07.ActionBarActivity"
+            android:label="액션 바 예제"
+            android:theme="@style/Theme.Ch07.ActionBar" />
+        <activity android:name=".chap07.ToolBarActivity" />
+        <activity
+            android:name=".chap07.OptionMenuActivity"
+            android:label="OptionMenuExample"
+            android:theme="@style/Theme.Ch07.OptionMenu" />
+        <activity android:name=".chap07.ContextMenuActivity" />
+        <activity android:name=".chap07.PopupMenuActivity" />
+        <activity android:name=".chap08.AlertDialogActivity" />
+        <activity android:name=".chap08.AlertDialog02Activity" />
+        <activity android:name=".chap08.CustomDialogActivity" />
+        <activity android:name=".chap08.DateTimePickerActivity" />
+        <activity android:name=".chap08.PizzaActivity" />
+        <activity android:name=".chap08.CalculatorActivity" />
+        <activity android:name=".chap08.TimeQuizActivity" />
         <activity
             android:name=".chap06.IntentFilterProjectActivity"
             android:exported="true">

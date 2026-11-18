@@ -43,9 +43,21 @@ import com.example.bookmarket.chap06.AnimalMainActivity
 import com.example.bookmarket.chap06.ShapeMainActivity
 import com.example.bookmarket.chap06.ImplicitIntentProjectActivity
 import com.example.bookmarket.chap06.IntentFilterProjectActivity
+import com.example.bookmarket.chap07.ActionBarActivity
+import com.example.bookmarket.chap07.ContextMenuActivity
+import com.example.bookmarket.chap07.OptionMenuActivity
+import com.example.bookmarket.chap07.PopupMenuActivity
+import com.example.bookmarket.chap07.ToolBarActivity
+import com.example.bookmarket.chap08.AlertDialog02Activity
+import com.example.bookmarket.chap08.AlertDialogActivity
+import com.example.bookmarket.chap08.CalculatorActivity
+import com.example.bookmarket.chap08.CustomDialogActivity
+import com.example.bookmarket.chap08.DateTimePickerActivity
+import com.example.bookmarket.chap08.PizzaActivity
+import com.example.bookmarket.chap08.TimeQuizActivity
 
-fun AppCompatActivity.setScreen(layoutId: Int, rootId: Int = R.id.main) {
-    enableEdgeToEdge()
+fun AppCompatActivity.setScreen(layoutId: Int, rootId: Int = R.id.main, edgeToEdge: Boolean = true) {
+    if (edgeToEdge) enableEdgeToEdge()
     setContentView(layoutId)
     ViewCompat.setOnApplyWindowInsetsListener(findViewById(rootId)) { v, insets ->
         val systemBars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
@@ -75,6 +87,14 @@ class ExamplesActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         val screens: List<Pair<String, Intent?>> = listOf(
+            "8장 프로젝트" to null,
+            "BookMarket 메뉴 화면 (탐색 아이콘 → 로그인 대화상자)" to screen(MenuActivity::class.java),
+            "BookMarket 도서목록 → 도서 상세 (장바구니 담기)" to screen(BooksActivity::class.java),
+
+            "7장 프로젝트" to null,
+            "BookMarket 메뉴 화면 (툴 바, 내비게이션 메뉴)" to screen(MenuActivity::class.java),
+            "BookMarket 도서목록 (액션 바, 옵션 메뉴)" to screen(BooksActivity::class.java),
+
             "6장 프로젝트" to null,
             "BookMarket 시작 → 메뉴 → 도서목록 → 도서 상세" to screen(MainActivity::class.java),
 
@@ -167,6 +187,23 @@ class ExamplesActivity : AppCompatActivity() {
             "ImplicitIntentProject - 웹페이지 보기" to screen(ImplicitIntentProjectActivity::class.java),
             "IntentFilter 예제 - 웹 불러오기" to screen(IntentFilterExampleActivity::class.java),
             "IntentFilterProject - 이메일 보내기" to screen(IntentFilterProjectActivity::class.java),
+
+            "7장 메뉴와 앱 바" to null,
+            "ActionBar 예제" to screen(ActionBarActivity::class.java),
+            "ToolBar 예제 - 코드로 설정" to screen(ToolBarActivity::class.java),
+            "ToolBar 예제 2 - XML로 설정" to layout(R.layout.ch07_toolbar2),
+            "OptionMenu 예제" to screen(OptionMenuActivity::class.java),
+            "ContextMenu 예제 - 버튼 길게 누르기" to screen(ContextMenuActivity::class.java),
+            "PopupMenu 예제" to screen(PopupMenuActivity::class.java),
+
+            "8장 대화상자" to null,
+            "AlertDialog 예제 - 기본 대화상자" to screen(AlertDialogActivity::class.java),
+            "AlertDialog 예제 02 - 목록 대화상자" to screen(AlertDialog02Activity::class.java),
+            "CustomDialog 예제" to screen(CustomDialogActivity::class.java),
+            "DateTimePickerDialog 예제" to screen(DateTimePickerActivity::class.java),
+            "AlertDialogProject - 피자 주문" to screen(PizzaActivity::class.java),
+            "CustomDialogProject - 계산기" to screen(CalculatorActivity::class.java),
+            "TimePickerDialogProject - 시계 퀴즈" to screen(TimeQuizActivity::class.java),
         )
         val list = LinearLayout(this).apply { orientation = LinearLayout.VERTICAL }
         for ((title, intent) in screens) {
